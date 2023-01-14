@@ -3,15 +3,15 @@ const { success, error } = require('consola');
 var compression = require('compression')
 require('./config/db')()
 require('dotenv').config()
-
+const routes = require('./routes')
 
 try {
-
+    app.use('/api', routes)
 } catch (err) {
     console.log(err)
     if (err) throw err
 }
-// app.use('/')
+
 
 
 app.listen(process.env.PORT, success({
